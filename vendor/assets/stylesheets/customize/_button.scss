@@ -1,0 +1,47 @@
+$button-base: map-merge($inputs, (
+  user-select: none,
+  text-decoration: none,
+  cursor: pointer,
+  padding: map-get($inputs, padding) map-get($inputs, padding) + 1em
+));
+
+$button:        () !default;
+$button-focus:  $inputs-focus !default;
+$button-hover:  $inputs-hover !default;
+$button-active: () !default;
+
+$button:        map-merge($button-base, $button);
+$button-focus:  map-merge($inputs-focus, $button-focus);
+
+$button-hover:  map-merge((
+box-shadow: inset 0 0 0 100em rgba(0, 0, 0, .1),
+), $button-hover);
+
+$button-active: map-merge((
+box-shadow: inset 0 0 0 100em rgba(0, 0, 0, .3)
+), $button-active);
+
+.button, a.button:visited {
+  @include properties($button);
+
+  &:hover {
+    @include properties($button-hover);
+  }
+
+  &:focus {
+    outline: none;
+    @include properties($button-focus);
+  }
+
+  &:active {
+    @include properties($button-active);
+  }
+}
+
+button,
+input[type='submit'],
+input[type='button'],
+input[type='image'],
+input[type='reset'] {
+  @extend .button;
+}

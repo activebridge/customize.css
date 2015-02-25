@@ -1,0 +1,29 @@
+$file-base: map-merge($inputs, (
+  padding: map-get($inputs, padding) map-get($inputs, padding) + 1em
+));
+
+$file-focus: $inputs-focus !default;
+$file-hover: $inputs-hover !default;
+$file: () !default;
+
+$file:    map-merge($file-base, $file);
+$file-focus: map-merge($inputs-focus, $file-focus);
+$file-hover: map-merge($inputs-hover, $file-hover);
+
+input[type=file].file {
+  opacity: 0;
+  position: absolute;
+  left: -9999em;
+
+  & + label {
+    @include properties(map-merge($label-base, $file));
+  }
+
+  &:focus + label {
+    @include properties($file-focus);
+  }
+
+  &:hover + label {
+    @include properties($file-hover);
+  }
+}

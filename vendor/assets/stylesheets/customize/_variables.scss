@@ -1,0 +1,74 @@
+$aqua:    #7FDBFF;
+$orange:  #FF851B;
+$red:     #FF4136;
+$white:   #fff;
+$gray:    #aaa;
+$black:   #111;
+
+$warning:      $orange !default;
+$error:        $red !default;
+$dull:         $gray !default;
+
+$inputs-base: (
+  background: $white,
+  font-size: 1em,
+  color: $black,
+  line-height: normal,
+  margin: .3em 0,
+  padding: .3em,
+  border: 1px solid $dull,
+  border-radius: .2em,
+  transition: border-color .3s,
+  vertical-align: middle,
+  box-shadow: none,
+  outline: none
+);
+
+$inputs-focus-base: (
+  border-color: $aqua
+);
+
+$inputs-hover-base: ();
+
+$input-invalid-base: (
+  border-color: $error
+);
+
+$input-focus-invalid-base: (
+  border-color: $warning
+);
+
+$inputs:       () !default;
+$inputs-focus: () !default;
+$inputs-hover: () !default;
+
+$inputs: map-merge($inputs-base, $inputs);
+
+$label-base: (
+  display: inline-block,
+  margin: map-get($inputs, margin),
+  vertical-align: middle,
+  cursor: pointer
+);
+
+$body: (
+  color: $black,
+  line-height: 1.2em
+) !default;
+
+$a: (
+  color: inherit,
+  text-decoration: none
+) !default;
+
+$select-arrow-color: map-get($inputs, color) !default;
+$select-padding:     map-get($inputs, padding) - .04em !default;
+$select-arrow:       '\25BC' !default;
+
+$radio-body-width:         3px !default;
+
+@mixin properties($attrs) {
+  @each $key, $val in $attrs {
+    #{$key}: $val;
+  }
+}

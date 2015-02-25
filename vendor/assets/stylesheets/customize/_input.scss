@@ -1,0 +1,27 @@
+$input-invalid:       () !default;
+$input-focus-invalid: () !default;
+
+$inputs-focus:  map-merge($inputs-focus-base, $inputs-focus);
+$inputs-hover:  map-merge($inputs-hover-base, $inputs-hover);
+
+$input:       $inputs !default;
+$input-focus: $inputs-focus !default;
+$input-hover: $inputs-hover !default;
+
+$input:               map-merge($inputs, $input);
+$input-invalid:       map-merge($input-invalid-base, $input-invalid);
+$input-focus-invalid: map-merge($input-focus-invalid-base, $input-focus-invalid);
+$input-focus:         map-merge($inputs-focus, $input-focus);
+$input-hover:         map-merge($inputs-hover, $input-hover);
+
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), textarea {
+  @include properties($input);
+  &:focus { @include properties($input-focus); }
+  &:hover { @include properties($input-hover); }
+  &:invalid { @include properties($input-invalid); }
+  &:focus:invalid { @include properties($input-focus-invalid); }
+}
+
+input[type=file], input[type=color] {
+  cursor: pointer;
+}

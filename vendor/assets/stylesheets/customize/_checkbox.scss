@@ -1,0 +1,44 @@
+$checkbox-base: map-merge($inputs, (
+  content: '\2714',
+  font-size: map-get($inputs, font-size) - .2em,
+  display: inline-block,
+  width: 1em,
+  height: 1em,
+  line-height: 1.1em,
+  color: transparent,
+  text-align: center,
+  margin:  -.2em 0 0 0,
+  padding: 0
+));
+
+$checkbox-focus: $inputs-focus !default;
+$checkbox-hover: $inputs-hover !default;
+$checkbox: () !default;
+
+$checkbox:       map-merge($checkbox-base, $checkbox);
+$checkbox-focus: map-merge($inputs-focus, $checkbox-focus);
+$checkbox-hover: map-merge($inputs-hover, $checkbox-hover);
+
+input[type=checkbox].checkbox {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+
+  & + label {
+    @include properties($label-base);
+
+    &:before {
+      @include properties($checkbox);
+    }
+  }
+
+  &:checked + label:before {
+    color: map-get($inputs, color);
+  }
+  &:focus + label:before {
+    @include properties($checkbox-focus);
+  }
+  &:hover + label:before {
+    @include properties($checkbox-hover);
+  }
+}

@@ -1,0 +1,73 @@
+$range-base: map-merge($inputs, (
+  width: 99%,
+  height: 1.9em,
+  cursor: pointer,
+  padding: 0,
+  margin: 0
+));
+
+$range-thumb-base: map-merge($inputs, (
+  width: 1em,
+  height: 1.83em,
+  padding: 0,
+  margin: -0.05em 0 0 0,
+  cursor: pointer
+));
+
+$ms-fill: (
+  background: transparent,
+  border: none,
+  box-shadow: none
+);
+
+$range: () !default;
+$range-thumb: () !default;
+
+$range-focus: $inputs-focus !default;
+$range-focus-thumb: $inputs-focus !default;
+
+$range-hover: () !default;
+$range-hover-thumb: () !default;
+
+$range: map-merge($range-base, $range);
+$range-thumb: map-merge($range-thumb-base, $range-thumb);
+
+input[type=range] {
+  border: none;
+  padding: 0;
+  -webkit-appearance: none;
+  margin: map-get($inputs, margin);
+  box-shadow: none;
+  vertical-align: middle;
+
+  &::-webkit-slider-runnable-track { @include properties($range); }
+
+  &::-webkit-slider-thumb {
+    @include properties($range-thumb);
+    -webkit-appearance: none;
+  }
+
+  &::-moz-range-track { @include properties($range); }
+  &::-moz-range-thumb { @include properties($range-thumb); }
+  &::-moz-focus-outer { border: 0; }
+
+  &::-ms-track {
+    @include properties($range);
+    color: transparent;
+  }
+
+  &::-ms-thumb { @include properties($range-thumb); }
+  &::-ms-fill-lower { @include properties($ms-fill); }
+  &::-ms-fill-upper { @include properties($ms-fill); }
+
+  &:focus {
+    outline: none;
+
+    &::-webkit-slider-runnable-track { @include properties($range-focus); }
+    &::-webkit-slider-thumb { @include properties($range-focus-thumb); }
+    &::-moz-range-track { @include properties($range-focus); }
+    &::-moz-range-thumb { @include properties($range-focus-thumb); }
+    &::-ms-track { @include properties($range-focus); }
+    &::-ms-thumb { @include properties($range-focus-thumb); }
+  }
+}
