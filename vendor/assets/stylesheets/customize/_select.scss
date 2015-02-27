@@ -6,9 +6,9 @@ $select-base: map-merge($inputs, (
   padding: 0,
 ));
 
-$select-hover-base: map-merge($inputs-hover, (
+$select-hover-base: map-merge((
   border-color: $aqua
-)) !default;
+), $inputs-hover) !default;
 
 $select: () !default;
 $select-hover: () !default;
@@ -59,7 +59,7 @@ $select-hover: map-merge($select-hover-base, $select-hover);
     border: none;
     border-radius: map-get($inputs, border-radius);
     cursor: pointer;
-    font-size: map-get($inputs, font-size);
+    font-size: inherit;
     width: 100%;
 
     &:-moz-focusring {
@@ -70,6 +70,8 @@ $select-hover: map-merge($select-hover-base, $select-hover);
     &::-ms-expand { display: none; }
 
     option { padding: .2em .5em; }
+
+    &:focus { outline: none; }
   }
 
   &:hover { @include properties($select-hover); }

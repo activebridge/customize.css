@@ -6,6 +6,8 @@
 /doc/
 /pkg/
 /spec/reports/
+/_site/
+/.sass-cache
 /tmp/
 *.bundle
 *.so

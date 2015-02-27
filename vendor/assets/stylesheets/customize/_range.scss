@@ -34,7 +34,8 @@ $range-thumb: map-merge($range-thumb-base, $range-thumb);
 
 input[type=range] {
   border: none;
-  padding: 0;
+  padding: map-get($inputs, padding);
+  background: transparent;
   -webkit-appearance: none;
   margin: map-get($inputs, margin);
   box-shadow: none;

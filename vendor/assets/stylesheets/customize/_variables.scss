@@ -21,6 +21,7 @@ $inputs-base: (
   transition: border-color .3s,
   vertical-align: middle,
   box-shadow: none,
+  box-sizing: border-box,
   outline: none
 );
 

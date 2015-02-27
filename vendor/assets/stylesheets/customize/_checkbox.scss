@@ -8,6 +8,7 @@ $checkbox-base: map-merge($inputs, (
   color: transparent,
   text-align: center,
   margin:  -.2em 0 0 0,
+  box-sizing: content-box,
   padding: 0
 ));
 

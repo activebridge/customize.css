@@ -21,7 +21,7 @@ input[type=radio].radio {
     @include properties($label-base);
 
     &:before {
-      box-shadow: inset 0 0 0 $radio-body-width map-get($inputs, background);
+      box-shadow: inset 0 0 0 $radio-body-width map-get($radio, background);
       @include properties($radio)
     }
   }
