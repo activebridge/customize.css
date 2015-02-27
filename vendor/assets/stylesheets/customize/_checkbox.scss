@@ -5,7 +5,6 @@ $checkbox-base: map-merge($inputs, (
   width: 1em,
   height: 1em,
   line-height: 1.1em,
-  color: transparent,
   text-align: center,
   margin:  -.2em 0 0 0,
   box-sizing: content-box,
@@ -30,11 +29,12 @@ input[type=checkbox].checkbox {
 
     &:before {
       @include properties($checkbox);
+      color: transparent;
     }
   }
 
   &:checked + label:before {
-    color: map-get($inputs, color);
+    color: map-get($checkbox, color);
   }
   &:focus + label:before {
     @include properties($checkbox-focus);

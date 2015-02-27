@@ -26,7 +26,7 @@ input[type=radio].radio {
     }
   }
   &:checked + label:before {
-    background: map-get($inputs, color);
+    background: map-get($radio, color);
   }
   &:focus + label:before {
     @include properties($radio-focus);
