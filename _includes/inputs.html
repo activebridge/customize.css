@@ -1,3 +1,47 @@
----
-layout: default
----
+<form action="" method="get">
+  <fieldset>
+    <legend>Legend</legend>
+    <div class='half'>
+      <label for='range'>Range:</label>
+      <input type="range" id='range' />
+      <label for='email'>Email:</label>
+      <input type="email" id='email' placeholder='Email'/>
+      <label for='text'>Text Area:</label>
+      <textarea rows="5" cols="20" id='text' placeholder='Text Area'></textarea>
+    </div>
+    <div class='half'>
+      <label for='select'>Select:</label>
+      <label for="select" class='select'>
+        <select name="select" id="select">
+          <option>Select</option>
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </select>
+      </label>
+      <label for='file'>File</label>
+      <input class="file" type="file" id='file'/><label for="file">Choose some file</label>
+      <label>Checkboxes:</label>
+      <input class='checkbox' type="checkbox"  value="1" checked id='checkbox1'/>
+      <label for="checkbox1">
+        Checkbox 1
+      </label>
+      <input class='checkbox' type="checkbox"  value="1" checked id='checkbox2'/>
+      <label for="checkbox2">
+        Checkbox 2
+      </label>
+      <label>Radios:</label>
+      <input class='radio' type="radio" value="1" name='radio' checked id='radio1' />
+      <label for="radio1">
+        Raido 1
+      </label>
+      <input class='radio' type="radio"  value="1" id='radio2' name='radio' />
+      <label for="radio2">
+        Raido 2
+      </label>
+      <label>Buttons:</label>
+      <button>Submit</button>
+      <button disabled='disabled'>Disabled</button>
+    </div>
+  </fieldset>
+</form>

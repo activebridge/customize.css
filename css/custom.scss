@@ -1,0 +1,53 @@
+---
+---
+
+$radio-body-width: 5px;
+
+$body: (
+  background: #333,
+  color: #e3e3e3
+);
+
+$inputs: (
+  width: 100%,
+  border: 3px solid #aaaaba,
+  color: white,
+  border-radius: 0,
+  font-size: 1.2em,
+  background: linear-gradient(to bottom, #222222 0%, #45484d 100%)
+);
+
+$inputs-focus: (border: 3px solid violet);
+
+$inputs-hover: (border: 3px solid blueviolet);
+
+$radio: (
+  background: #222222,
+  border-radius: 50%,
+  color: #aaaaba
+);
+
+$radio-focus: (background: violet);
+$radio-hover: (background: rgba(blueviolet, .2));
+
+$checkbox: (transition: (color .3s ease, border-color .3s ease));
+$checkbox-hover: (color: rgba(blueviolet, .3));
+
+$range: (
+  border: 3px solid #aaaaba,
+  background: blueviolet,
+  height: 0,
+);
+
+$range-thumb: (
+  border-radius: 50%,
+  margin-top: -.5em,
+  height: 1em,
+  background: #aaaaba
+);
+
+$button: (background: blueviolet, width: auto);
+$file: $button;
+
+@import 'customize';
+@import 'shared';

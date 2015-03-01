@@ -1,0 +1,7 @@
+body {
+  @include properties($body);
+}
+
+a, a:hover, a:active, a:visited {
+  @include properties($a);
+}

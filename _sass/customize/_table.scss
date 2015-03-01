@@ -1,0 +1,12 @@
+table {
+}
+
+td, th {
+}
+
+th {
+}
+
+tr:nth-child(even) {
+  background: $table-even-background;
+}

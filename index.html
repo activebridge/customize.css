@@ -6,4 +6,117 @@ layout: default
 
   <p class="text">{{ site.description }}</p>
 
+  <p>
+    Base styling looks like this:
+  </p>
+  <iframe src="base" frameborder="0"></iframe>
+  <span>
+    Available variables:
+  </span>
+    <ul>
+      <li>$inputs, $inputs-focus, $inputs-hover - Gloabal for all types of inputs</li>
+      <li>$input, $input-focus, $input-hover, $input-invalid, $input-focus-invalid - For string inputs</li>
+      <li>$range, $range-thumb, $range-focus, $range-hover - Range input</li>
+      <li>$checkbox, $checkbox-focus, $checkbox-hover</li>
+      <li>$radio, $radio-focus, $radio-hover</li>
+      <li>$file, $file-focus, $file-hover</li>
+      <li>$button, $button-focus, $button-hover, $button-active</li>
+      <li>$select, $select-hover</li>
+      <li>$a</li>
+      <li>$body</li>
+    </ul>
+  </p>
+
+  <span>Example of overwrites:</span>
+  {% highlight scss %}
+  $radio-body-width: 5px;
+
+  $body: (
+    background: #333,
+    color: #e3e3e3
+  );
+
+  $inputs: (
+    width: 100%,
+    border: 3px solid #aaaaba,
+    color: white,
+    border-radius: 0,
+    font-size: 1.2em,
+    background: linear-gradient(to bottom, #222222 0%, #45484d 100%)
+  );
+
+  $inputs-focus: (border: 3px solid violet);
+
+  $inputs-hover: (border: 3px solid blueviolet);
+
+  $radio: (
+    background: #222222,
+    border-radius: 50%,
+    color: #aaaaba
+  );
+
+  $radio-focus: (background: violet);
+  $radio-hover: (background: rgba(blueviolet, .2));
+
+  $checkbox: (transition: (color .3s ease, border-color .3s ease));
+  $checkbox-hover: (color: rgba(blueviolet, .3));
+
+  $range: (
+    border: 3px solid #aaaaba,
+    background: blueviolet,
+    height: 0,
+  );
+
+  $range-thumb: (
+    border-radius: 50%,
+    margin-top: -.5em,
+    height: 1em,
+    background: #aaaaba
+  );
+
+  $button: (background: blueviolet, width: auto);
+  $file: $button;
+
+  @import 'customize';
+  {% endhighlight %}
+  <span>Gives you the next look:</span>
+
+  <iframe src="custom" frameborder="0"></iframe>
+
+  <p>
+    There some html rules you have to follow:
+  </p>
+
+  <span>Select:</span>
+  {% highlight html %}
+  <label for="select" class='select'>
+    <select name="select" id="select">
+      <option>One</option>
+      <option>Two</option>
+    </select>
+  </label>
+  {% endhighlight %}
+  <span>File:</span>
+  {% highlight html %}
+  <input class="file" type="file" id='file'/>
+  <label for="file">Choose some file</label>
+  {% endhighlight %}
+  <span>Checkbox:</span>
+  {% highlight html %}
+  <input class='checkbox' type="checkbox"  value="1" checked id='checkbox'/>
+  <label for="checkbox"> Checkbox</label>
+  {% endhighlight %}
+  <span>Radio:</span>
+  {% highlight html %}
+
+  <input class='radio' type="radio" value="1" name='radio' checked id='radio' />
+  <label for="radio"> Raido</label>
+
+  {% endhighlight %}
+
+  <p>
+    For more information view the
+    <a href="https://github.com/galulex/customize.css">Readme</a>
+  </p>
+
 </div>

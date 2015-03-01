@@ -1,0 +1,78 @@
+$select-base: map-merge($inputs, (
+  position: relative,
+  display: inline-block,
+  min-width: 50px,
+  overflow: hidden,
+  padding: 0,
+));
+
+$select-hover-base: map-merge((
+  border-color: $aqua
+), $inputs-hover) !default;
+
+$select: () !default;
+$select-hover: () !default;
+
+$select:       map-merge($select-base, $select);
+$select-hover: map-merge($select-hover-base, $select-hover);
+
+.select {
+  @include properties($select);
+
+  &:before {
+    background: map-get($inputs, background);
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1.5em;
+    pointer-events: none;
+    border-radius: map-get($inputs, border-radius);
+  }
+
+  &:after {
+    color: $select-arrow-color;
+    content: $select-arrow;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 24%;
+    width: 1.8em;
+    height: 1.2em;
+    pointer-events: none;
+    font-size: 0.8em;
+    text-align: center;
+    border-radius: map-get($inputs, border-radius);
+  }
+
+  select {
+    height: 1.8em;
+    padding: map-get($inputs, padding) - .1em;
+    padding-right: 0.4em;
+    margin-right: 1em;
+    background: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: map-get($inputs, border-radius);
+    cursor: pointer;
+    font-size: inherit;
+    width: 100%;
+
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+
+    &::-ms-expand { display: none; }
+
+    option { padding: .2em .5em; }
+
+    &:focus { outline: none; }
+  }
+
+  &:hover { @include properties($select-hover); }
+}

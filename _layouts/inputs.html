@@ -1,13 +1,15 @@
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
-    <meta name="keywords" content="customize.css, normalize.css, customize css, normalize css, css framework, bootstrap, twitter bootstrap, zurb, zurb foundation">
-
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="stylesheet" href="{{ page.title | prepend: site.baseurl }}">
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-</head>
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>
