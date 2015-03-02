@@ -28,8 +28,7 @@ input[type=checkbox].checkbox {
     @include properties($label-base);
 
     &:before {
-      @include properties($checkbox);
-      color: transparent;
+      @include properties(map-merge($checkbox, (color: transparent)));
     }
   }
 
