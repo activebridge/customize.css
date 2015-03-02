@@ -1,0 +1,37 @@
+---
+layout: inputs
+title: /css/form.css
+permalink: /form/
+---
+
+<form action="" method='get'>
+  <fieldset>
+    <legend>Sign Up</legend>
+    <div class='half'>
+      <input type="email" id='email' placeholder='email'/>
+      <input type="password" id='password' placeholder='password'/>
+      <label for="select" class='select'>
+        <select name='select' id='select'>
+          <option>Month</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+        </select>
+      </label>
+      <br />
+      <input class='radio' type="radio" value="1" name='radio' checked id='radio1' />
+      <label for="radio1">
+        Male
+      </label>
+      <input class='radio' type="radio"  value="1" id='radio2' name='radio' />
+      <label for="radio2">
+        Female
+      </label>
+      <br />
+      <input class='checkbox' type='checkbox' value='1' checked id='checkbox1'/>
+      <label for="checkbox1"> I agree</label>
+      <br />
+      <button type='reset'>Sign Up</button>
+    </div>
+  </fieldset>
+</form>

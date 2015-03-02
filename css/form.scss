@@ -1,0 +1,56 @@
+---
+---
+
+$body: (
+  font-size: 1em,
+  background: #E74C3C
+);
+
+$inputs: (
+  color: #2C3E50,
+  border-radius: 0,
+  font-size: 1.4em,
+  background: #E74C3C
+);
+
+$input: (
+  border: none,
+  border-bottom: 3px solid white,
+  border-radius: 0,
+  background: transparent
+);
+
+$input-focus: (
+  border-color: #2C3E50
+);
+
+$radio: (
+  color: #2C3E50,
+  border: none,
+  font-size: 1.4em,
+  background: white,
+  transition: background .3s
+);
+
+$checkbox: (
+  font-size: 1.4em,
+  border: none,
+  background: white
+);
+
+$select: (
+  border: none,
+  border-bottom: 3px solid white
+);
+
+$radio-body-width: 5px;
+
+$button: (
+  border: none,
+  background: #2C3E50,
+  color: white
+);
+
+
+@import 'customize';
+@import 'shared';
