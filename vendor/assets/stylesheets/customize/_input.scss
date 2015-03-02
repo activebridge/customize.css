@@ -13,6 +13,7 @@ $input-invalid:       map-merge($input-invalid-base, $input-invalid);
 $input-focus-invalid: map-merge($input-focus-invalid-base, $input-focus-invalid);
 $input-focus:         map-merge($inputs-focus, $input-focus);
 $input-hover:         map-merge($inputs-hover, $input-hover);
+$input-placeholder:   (color: $gray) !default;
 
 input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), textarea {
   @include properties($input);
@@ -20,6 +21,9 @@ input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),
   &:hover { @include properties($input-hover); }
   &:invalid { @include properties($input-invalid); }
   &:focus:invalid { @include properties($input-focus-invalid); }
+  &::-webkit-input-placeholder { @include properties($input-placeholder); }
+  &::-moz-placeholder { @include properties($input-placeholder); }
+  &:-ms-input-placeholder { @include properties($input-placeholder); }
 }
 
 input[type=file], input[type=color] {
