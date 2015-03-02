@@ -1,16 +1,16 @@
 $radio-base: map-merge($checkbox-base, (
   content: '',
-  border-radius: 50%,
-  box-shadow: (inset 0 0 0 $radio-body-width map-get($inputs, background), map-get($inputs, box-shadow)),
+  border-radius: 50%
 ));
 
 $radio-focus: $inputs-focus !default;
 $radio-hover: $inputs-hover !default;
 $radio: () !default;
 
-$radio:    map-merge($radio-base, $radio);
-$radio-focus: map-merge($inputs-focus, $radio-focus);
-$radio-hover: map-merge($inputs-hover, $radio-hover);
+$radio:         map-merge($radio-base, $radio);
+$radio-checked: (background: map-get($radio, color)) !default;
+$radio-focus:   map-merge($inputs-focus, $radio-focus);
+$radio-hover:   map-merge($inputs-hover, $radio-hover);
 
 input[type=radio].radio {
   opacity: 0;
@@ -21,12 +21,11 @@ input[type=radio].radio {
     @include properties($label-base);
 
     &:before {
-      box-shadow: inset 0 0 0 $radio-body-width map-get($radio, background);
-      @include properties($radio)
+      @include properties(map-merge($radio, (box-shadow: inset 0 0 0 $radio-body-width map-get($radio, background))));
     }
   }
   &:checked + label:before {
-    background: map-get($radio, color);
+    @include properties($radio-checked);
   }
   &:focus + label:before {
     @include properties($radio-focus);

@@ -14,6 +14,7 @@ $checkbox-base: map-merge($inputs, (
 $checkbox-focus: $inputs-focus !default;
 $checkbox-hover: $inputs-hover !default;
 $checkbox: () !default;
+$checkbox-checked: (color: map-get($inputs, color)) !default;
 
 $checkbox:       map-merge($checkbox-base, $checkbox);
 $checkbox-focus: map-merge($inputs-focus, $checkbox-focus);
@@ -33,7 +34,7 @@ input[type=checkbox].checkbox {
   }
 
   &:checked + label:before {
-    color: map-get($checkbox, color);
+    @include properties($checkbox-checked);
   }
   &:focus + label:before {
     @include properties($checkbox-focus);
