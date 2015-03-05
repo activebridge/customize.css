@@ -15,7 +15,7 @@ $input-focus:         map-merge($inputs-focus, $input-focus);
 $input-hover:         map-merge($inputs-hover, $input-hover);
 $input-placeholder:   (color: $gray) !default;
 
-input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), textarea {
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=submit]):not([type=buton]):not([type=image]):not([type=reset]), textarea {
   @include properties($input);
   &:focus { @include properties($input-focus); }
   &:hover { @include properties($input-hover); }
