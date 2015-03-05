@@ -51,6 +51,7 @@ $select-hover: map-merge($select-hover-base, $select-hover);
     height: 1.8em;
     padding: map-get($inputs, padding) - .1em;
     padding-right: 0.4em;
+    margin: 0;
     margin-right: 1em;
     background: none;
     -moz-appearance: none;
