@@ -6,7 +6,7 @@ description: >
   Another advantage is that all inputs, checkboxes, radio buttons, select boxes have the same look and behaviour in all browsers.
   Also you can change the look of select or checkbox by setting several sass maps.
   This is the engine that supports themes so developers are able to share themes between each other.
-baseurl: '/customize.css'
+baseurl: ''
 url: 'http://galulex.github.io/'
 github_username:  galulex
 
