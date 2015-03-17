@@ -41,7 +41,7 @@ Customize the look of anything before importing:
 ```scss
 
 $inputs: (
-  border: 3px solid red;
+  border: 3px solid red
 );
 
 @import 'some-awesome-theme';
