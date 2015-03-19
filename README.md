@@ -6,6 +6,18 @@ Another advantage is that all inputs, checkboxes, radio buttons, select boxes ha
 Also you can change the look of select or checkbox by setting several `sass` maps.
 This is the engine that supports themes so developers are able to share themes between each other.
 
+## Bower instalation
+
+```
+bower install customize.css --save
+```
+
+In `application.scss`
+
+```
+@import "customize.css/vendor/assets/stylesheets/customize.scss";
+```
+
 ## Rails instalation
 
 In your Gemfile you need to add the `customize-rails` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
