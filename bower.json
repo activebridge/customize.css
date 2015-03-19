@@ -1,0 +1,29 @@
+{
+  "name": "customize-css",
+  "version": "0.0.2",
+  "homepage": "https://github.com/galulex/customize.css",
+  "authors": [
+    "Alex Galushka <galulex@gmail.com>"
+  ],
+  "description": "Customize css is the next generation of normalize.css",
+  "main": "vendor/assets/stylesheets/customize.scss",
+  "keywords": [
+    "css",
+    "oocss",
+    "modularity",
+    "semantics",
+    "sass"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "*.gemspec",
+    "Rakefile",
+    "test",
+    "lib",
+    "Gemfile"
+  ]
+}
