@@ -18,7 +18,7 @@ In `application.scss`
 @import "customize.css/vendor/assets/stylesheets/customize.scss";
 ```
 
-## Rails instalation
+## Rails Installation
 
 In your Gemfile you need to add the `customize-rails` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
