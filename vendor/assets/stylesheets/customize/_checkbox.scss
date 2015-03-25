@@ -1,5 +1,5 @@
 $checkbox-base: map-merge($inputs, (
-  content: '\2714',
+  content: '',
   font-size: map-get($inputs, font-size) - .2em,
   display: inline-block,
   width: 1em,
@@ -14,7 +14,7 @@ $checkbox-base: map-merge($inputs, (
 $checkbox-focus: $inputs-focus !default;
 $checkbox-hover: $inputs-hover !default;
 $checkbox: () !default;
-$checkbox-checked: (color: map-get($inputs, color)) !default;
+$checkbox-checked: (content: '\2714') !default;
 
 $checkbox:       map-merge($checkbox-base, $checkbox);
 $checkbox-focus: map-merge($inputs-focus, $checkbox-focus);
