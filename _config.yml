@@ -7,7 +7,7 @@ description: >
   Also you can change the look of select or checkbox by setting several sass maps.
   This is the engine that supports themes so developers are able to share themes between each other.
 baseurl: ''
-url: 'http://galulex.github.io/'
+url: 'http://galulex.github.io/customize.css/'
 github_username:  galulex
 
 # Build settings
