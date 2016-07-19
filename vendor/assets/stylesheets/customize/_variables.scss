@@ -62,10 +62,6 @@ $a: (
   text-decoration: none
 ) !default;
 
-$select-arrow-color: map-get($inputs, color) !default;
-$select-padding:     map-get($inputs, padding) - .04em !default;
-$select-arrow:       '\25BC' !default;
-
 $radio-body-width:         3px !default;
 
 @mixin properties($attrs) {

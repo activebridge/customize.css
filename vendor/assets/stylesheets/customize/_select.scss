@@ -1,69 +1,74 @@
 $select-base: map-merge($inputs, (
-  position: relative,
-  display: inline-block,
   min-width: 50px,
-  overflow: hidden,
-  padding: 0,
+  padding-right: 1.5em,
+  margin: 0,
+  border-width: 1px
 ));
 
-$select-hover-base: map-merge((
-  border-color: $aqua
-), $inputs-hover) !default;
-
 $select: () !default;
-$select-hover: () !default;
+$select: map-merge($select-base, $select);
 
-$select:       map-merge($select-base, $select);
-$select-hover: map-merge($select-hover-base, $select-hover);
+$select-hover: () !default;
+$select-focus: () !default;
+
+$select-focus-base: $inputs-focus;
+$select-focus: map-merge($select-focus-base, $select-focus);
+
+$select-arrow-bg-base: (
+  background: map-get($select, background),
+  content: '',
+  display: block,
+  position: absolute,
+  top: 0,
+  right: 0,
+  bottom: 0,
+  width: 1.5em,
+  pointer-events: none,
+  margin: 1px,
+  border-radius: map-get($select, border-radius),
+  border-color: transparent,
+  z-index: 1
+);
+
+$select-arrow-bg: () !default;
+$select-arrow-bg: map-merge($select-arrow-bg-base, $select-arrow-bg);
+
+$select-arrow-base: (
+  content: '',
+  border: .3em solid transparent,
+  border-top: .5em solid $black,
+  display: block,
+  position: absolute,
+  right: 10%,
+  top: 40%,
+  width: 0,
+  height: 0,
+  pointer-events: none,
+  z-index: 2
+);
+
+$select-arrow: () !default;
+$select-arrow: map-merge($select-arrow-base, $select-arrow);
+
+$select-arrow-bg-hover: () !default;
+$select-arrow-hover: () !default;
 
 .select {
-  @include properties($select);
+  position: relative;
+  display: inline-block;
+  margin: map-get($select, margin);
 
-  &:before {
-    background: map-get($inputs, background);
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 1.5em;
-    pointer-events: none;
-    border-radius: map-get($inputs, border-radius);
-    z-index: 1;
-  }
-
-  &:after {
-    color: $select-arrow-color;
-    content: $select-arrow;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 24%;
-    width: 1.8em;
-    height: 1.2em;
-    pointer-events: none;
-    font-size: 0.8em;
-    text-align: center;
-    border-radius: map-get($inputs, border-radius);
-    z-index: 2;
-  }
+  &:before { @include properties($select-arrow-bg); }
+  &:after { @include properties($select-arrow); }
+  &:hover:before { @include properties($select-arrow-bg-hover); }
+  &:hover:after { @include properties($select-arrow-hover); }
 
   select {
-    height: 1.8em;
-    padding: map-get($inputs, padding) - .1em;
-    padding-right: 0.4em;
-    margin: 0;
-    margin-right: 1em;
-    background: none;
+    @include properties($select);
     -moz-appearance: none;
     -webkit-appearance: none;
+    -ms-appearance: none;
     appearance: none;
-    border: none;
-    border-radius: map-get($inputs, border-radius);
-    cursor: pointer;
-    font-size: inherit;
-    width: 100%;
 
     &:-moz-focusring {
       color: transparent;
@@ -74,8 +79,6 @@ $select-hover: map-merge($select-hover-base, $select-hover);
 
     option { padding: .2em .5em; }
 
-    &:focus { outline: none; }
+    &:focus { @include properties($select-focus); }
   }
-
-  &:hover { @include properties($select-hover); }
 }
