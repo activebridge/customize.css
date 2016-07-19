@@ -2,9 +2,9 @@ $checkbox-base: map-merge($inputs, (
   content: '',
   font-size: map-get($inputs, font-size) - .2em,
   display: inline-block,
-  width: 1em,
-  height: 1em,
-  line-height: 1.1em,
+  width: 1.4em,
+  height: 1.4em,
+  line-height: 1,
   text-align: center,
   margin:  -.2em 0 0 0,
   box-sizing: content-box,
@@ -14,11 +14,48 @@ $checkbox-base: map-merge($inputs, (
 $checkbox-focus: $inputs-focus !default;
 $checkbox-hover: $inputs-hover !default;
 $checkbox: () !default;
-$checkbox-checked: (content: '\2714') !default;
+$checkbox-checked: (content: '') !default;
 
 $checkbox:       map-merge($checkbox-base, $checkbox);
 $checkbox-focus: map-merge($inputs-focus, $checkbox-focus);
 $checkbox-hover: map-merge($inputs-hover, $checkbox-hover);
+
+$checkbox-checked-focus: () !default;
+$checkbox-checked-hover: () !default;
+
+$checkmark-base: (
+  content: '',
+  display: block,
+  position: absolute,
+  width: 0,
+  height: 0,
+  top: 60%,
+  transform: rotate(360deg),
+  left: 6%,
+  border: .15em solid transparent,
+  transition: all .3s
+);
+
+$checkmark: () !default;
+$checkmark: map-merge($checkmark-base, $checkmark);
+
+$checkmark-checked-base: (
+  width: .4em,
+  height: .7em,
+  top: 12%,
+  transform: rotate(40deg),
+  border-left: none,
+  border-bottom: .15em solid $black,
+  border-right: .15em solid $black,
+);
+
+$checkmark-checked: () !default;
+$checkmark-checked: map-merge($checkmark-checked-base, $checkmark-checked);
+
+$checkmark-focus: () !default;
+$checkmark-hover: () !default;
+$checkmark-checked-focus: () !default;
+$checkmark-checked-hover: () !default;
 
 input[type=checkbox].checkbox {
   opacity: 0;
@@ -26,20 +63,25 @@ input[type=checkbox].checkbox {
   z-index: -1;
 
   & + label {
+    position: relative;
     @include properties($label-base);
 
-    &:before {
-      @include properties(map-merge($checkbox, (color: transparent)));
-    }
+    &:before { @include properties($checkbox); }
+    &:after { @include properties($checkmark); }
   }
 
-  &:checked + label:before {
-    @include properties($checkbox-checked);
-  }
-  &:focus + label:before {
-    @include properties($checkbox-focus);
-  }
-  &:hover + label:before {
-    @include properties($checkbox-hover);
-  }
+  &:checked + label:before { @include properties($checkbox-checked); }
+  &:checked + label:after { @include properties($checkmark-checked); }
+
+  &:focus + label:before { @include properties($checkbox-focus); }
+  &:focus + label:after { @include properties($checkmark-focus); }
+
+  &:hover + label:before { @include properties($checkbox-hover); }
+  &:hover + label:before { @include properties($checkmark-hover); }
+
+  &:checked:focus + label:before { @include properties($checkbox-checked-focus); }
+  &:checked:focus + label:after { @include properties($checkmark-checked-focus); }
+
+  &:checked:hover + label:before { @include properties($checkbox-checked-hover); }
+  &:checked:hover + label:after { @include properties($checkmark-checked-hover); }
 }
